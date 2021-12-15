@@ -19,6 +19,11 @@ const EmailDetail = () => {
         console.log("here is all data data", data);
     }
 
+    const deleteEmail = async () => {
+        const {data} = await axios.delete(`http://127.0.0.1:5000/api/useremails/${id}`);
+        console.log("email deleted", );
+    }
+
 
     useEffect(() => {
         getEmail();
@@ -72,7 +77,7 @@ const EmailDetail = () => {
 
                             <br />
                             <div>
-                            <Link to="/" className="uppercase font-semibold tracking-wide bg-red-100 text-blue-700 px-4 py-2 rounded-lg mt-5 focus:outline-none hover:bg-blue-200">Delete Message</Link>
+                            <button onClick={deleteEmail} className="uppercase font-semibold tracking-wide bg-red-100 text-blue-700 px-4 py-2 rounded-lg mt-5 focus:outline-none hover:bg-blue-200">Delete Message</button>
                             </div>
                         </div>
                     </section>
